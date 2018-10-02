@@ -44,6 +44,8 @@ jsonfile.readFile('players.json', (err, obj) => {
                 };
             });
         };
+
+        client.end(); // Causes issue as queries are asynchronous i.e. queries may still be running when loop is completed and this is executed.
     });
 });
 
